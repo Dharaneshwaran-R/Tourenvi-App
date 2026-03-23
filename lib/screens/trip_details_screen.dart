@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:io';
 import 'dart:convert';
 import '../theme/app_theme.dart';
+import 'cost_breakdown_screen.dart';
 
 class TripDetailsScreen extends StatefulWidget {
   final String tripType;
@@ -142,12 +143,19 @@ class _TripDetailsScreenState extends State<TripDetailsScreen> {
             if (_currentStep < 3) {
               setState(() => _currentStep += 1);
             } else {
-               ScaffoldMessenger.of(context).showSnackBar(
-                 const SnackBar(
-                   backgroundColor: AppColors.primaryGreen,
-                   content: Text('Trip planned successfully! 🎉', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
-                 )
-               );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => CostBreakdownScreen(
+                    origin: widget.origin,
+                    destination: widget.destination,
+                    vehicleDisplay: widget.vehicleDisplay,
+                    vehicleMileage: widget.vehicleMileage,
+                    memberCount: widget.memberCount,
+                    distance: _distance,
+                  ),
+                ),
+              );
             }
           },
           onStepCancel: () {

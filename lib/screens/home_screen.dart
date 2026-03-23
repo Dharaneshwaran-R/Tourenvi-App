@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_theme.dart';
+import '../services/auth_service.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  String _getGreeting() {
+    final hour = DateTime.now().hour;
+    if (hour < 12) return 'Good morning,';
+    if (hour < 17) return 'Good afternoon,';
+    return 'Good evening,';
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = AuthService().currentUser;
+    final userName = user?.name ?? 'Traveler';
+    final initials = userName.isNotEmpty ? userName[0].toUpperCase() : 'T';
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -22,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Good morning,',
+                        _getGreeting(),
                         style: TextStyle(
                           fontSize: 14,
                           color: AppColors.textSecondary,
@@ -33,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            'Dharanesh',
+                            userName,
                             style: GoogleFonts.syne(
                               fontSize: 24,
                               fontWeight: FontWeight.w800,
@@ -61,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        'D',
+                        initials,
                         style: GoogleFonts.inter(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,

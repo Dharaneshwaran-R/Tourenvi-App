@@ -19,7 +19,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       emoji: '🗺️',
       title: 'Plan your\nperfect road\ntrip',
       description:
-          'Tell WanderSmart where you want to go and let our AI suggest the best routes, hidden gems, and pit stops.',
+          'Tell Tourenvi where you want to go and let our AI suggest the best routes, hidden gems, and pit stops.',
     ),
     _OnboardingData(
       emoji: '⛽',

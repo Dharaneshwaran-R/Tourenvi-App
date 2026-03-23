@@ -105,11 +105,11 @@ class _SplashScreenState extends State<SplashScreen>
                           ),
                           children: const [
                             TextSpan(
-                              text: 'Wander',
+                              text: 'Tour',
                               style: TextStyle(color: Colors.white),
                             ),
                             TextSpan(
-                              text: 'Smart',
+                              text: 'Envi',
                               style: TextStyle(color: AppColors.primaryGreen),
                             ),
                           ],

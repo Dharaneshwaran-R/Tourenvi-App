@@ -197,7 +197,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 16),
               Center(
                 child: Text(
-                  'WanderSmart v1.0.0',
+                  'Tourenvi v1.0.0',
                   style: TextStyle(
                     fontSize: 12,
                     color: AppColors.textMuted,
